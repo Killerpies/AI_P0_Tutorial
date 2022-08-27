@@ -24,7 +24,7 @@ Pieter Abbeel (pabbeel@cs.berkeley.edu).
 
 
 FRUIT_PRICES = {'apples': 2.00,
-                'oranges': 1.50,
+                # 'oranges': 1.50,
                 'pears': 1.75,
                 'limes': 0.75,
                 'strawberries': 1.00}
@@ -39,6 +39,9 @@ def buy_lots_of_fruit(order_list):
     total_cost = 0.0
 
     # *** YOUR CODE HERE ***
+    for item in order_list:
+        if item[0] in FRUIT_PRICES:
+            total_cost += item[1] * FRUIT_PRICES[item[0]]
 
     return total_cost
 

@@ -17,7 +17,7 @@ import shop
 
 """
 Here's the intended output of this script, once you fill it in:
-
+bonus_pic
 Welcome to shop1 fruit shop
 Welcome to shop2 fruit shop
 For orders:  [('apples', 1.0), ('oranges', 3.0)] best shop is shop1
@@ -28,12 +28,16 @@ For orders:  [('apples', 3.0)] best shop is shop2
 def shop_smart(order_list, fruit_shops):
     """
         order_list: List of (fruit, numPound) tuples
-        fruit_shops: List of FruitShops
+        fruit_shops: List of FruitShops:
     """
+    bestPrice = fruit_shops[0].get_price_of_order(order_list)
+    bestShop = fruit_shops[0]
+    for shop in fruit_shops:
+        if shop.get_price_of_order(order_list) < bestPrice:
+            bestShop = shop
+            bestPrice = shop.get_price_of_order(order_list)
 
-    # *** YOUR CODE HERE ***
-
-    return None
+    return bestShop
 
 
 if __name__ == '__main__':
